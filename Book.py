@@ -8,4 +8,8 @@ class Book:
         book_info = f"{self.title},{self.author},{self.year},{self.number_of_pages}\n"
         return book_info
 
+    def list_books(self):
+        book_info = f"Book: {self.title}, Author: {self.author}\n"
+        return book_info
+
 
