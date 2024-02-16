@@ -1,5 +1,6 @@
 from Book import Book
 
+
 class Library:
     def __init__(self):
         try:
@@ -33,33 +34,43 @@ class Library:
      
       with open ("books.txt", "r") as file:
         new_lines = []
+        info = []
         for line in file:
-          infos = line.strip().split(",")
-          if book_title != infos[0]:
+          info = line.strip().split(",")
+          if book_title != info[0]:
             new_lines.append(line)
-          
+          else:
+            print("The book successfully removed")
+        if not book_title in info[0]:
+           print(book_title + " couldn't found.")
       with open("books.txt", "w") as file:
         file.writelines(new_lines)
-        print("The book successfully removed")
+        
 
 
-library = Library()
+lib = Library()
 
 while True:
-  print("\n*****MENU*****\n1) List Books\n2) Add Book\n3) Remove Book\n4) Quit")
-  choice = int(input("Enter your choice (1-4): "))
-  if choice == 1:#list books
-    library.list_books()
-  elif choice == 2:#add book
-    library.add_book()
-  elif choice == 3:# remove book
+  print("\n*****MENU*****\n1) List Books\n2) Add Book\n3) Remove Book\nQ) Quit")
+  
+  choice = input("Enter your choice (1-3): ")
+  
+  if choice == "1":#list books
+    lib.list_books()
+  elif choice == "2":#add book
+    lib.add_book()
+  elif choice == "3":# remove book
     remove_name = input("Enter the book title to remove: ")
-    library.remove_book(remove_name)
-  elif choice == 4:# quit
+    lib.remove_book(remove_name)
+  elif choice == ("q" or "Q"):# quit
     break
   else :
-    print("Invalid choice! Please choose a number between 1 and 4")
-  
+    print("Invalid choice! Please choose a number between 1 and 3")
+      
+      
+
+ 
+
 
 
 
